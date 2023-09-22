@@ -82,23 +82,26 @@ public class MainController {
         return commentRepository.save(newComment);
     }
 
-//    @PutMapping("/comments/{id}")
-//    Comment replaceComment(@RequestBody Market newMarket, @PathVariable Long id) {
-//        return marketRepository.findById(id)
-//                .map(market -> {
-//                    market.setDescription(newMarket.getDescription());
-//                    market.setQuestion(market.getQuestion());
-//                    market.setClosingDate(market.getClosingDate());
-//                    return marketRepository.save(market);
-//                })
-//                .orElseGet(() -> {
-//                    newMarket.setId(id);
-//                    return marketRepository.save(newMarket);
-//                });
-//    }
+    @PutMapping("/comments/{marketId}")
+    Comment replaceComment(@RequestBody CommentUpdateRequestData requestData, @PathVariable Long marketId) {
+        return commentRepository.findById(requestData.commentId)
+                .map(comment -> {
+                    comment.setCommentContent(requestData.newComment);
+                    return commentRepository.save(comment);
+                }).orElseGet(() -> {
+                    Market market = this.oneMarket(marketId);
+                    Comment newComment = new Comment(requestData.commentId, requestData.newComment, market);
+                    return commentRepository.save(newComment);
+                });
+    }
 
     @DeleteMapping("/comments/{id}")
     void deleteComment(@PathVariable Long id) {
         commentRepository.deleteById(id);
+    }
+
+    private static class CommentUpdateRequestData {
+        public String newComment;
+        public Long commentId;
     }
 }
