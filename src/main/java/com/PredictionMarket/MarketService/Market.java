@@ -1,9 +1,6 @@
 package com.PredictionMarket.MarketService;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.Date;
 import java.util.Objects;
@@ -17,15 +14,18 @@ public class Market {
     private String question;
     private Date closingDate;
     private String description;
+    @ManyToOne
+    private User user;
 
-    Market(String question, Date closingDate, String description) {
+    Market() {}
+
+    Market(String question, Date closingDate, String description, User user) {
         this.question = question;
         this.closingDate = closingDate;
         this.description = description;
+        this.user = user;
     }
 
-    // @ManyToOne?
-    // private User user;
 
     // @OneToMany?
     // private Comment[] comments;
@@ -68,9 +68,9 @@ public class Market {
         this.description = description;
     }
 
-    //public User getUser() {
-    //    return user;
-    //}
+    public User getUser() {
+        return user;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -82,17 +82,18 @@ public class Market {
         return Objects.equals(this.id, market.id) &&
                 Objects.equals(this.closingDate, market.closingDate) &&
                 Objects.equals(this.description, market.description) &&
-                Objects.equals(this.question, market.question);
+                Objects.equals(this.question, market.question) &&
+                Objects.equals(this.user, market.user);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.id, this.closingDate, this.description, this.question);
+        return Objects.hash(this.id, this.closingDate, this.description, this.question, this.user);
     }
 
     @Override
     public String toString() {
-        return "Market{" + "id=" + this.id + ", question='" + this.question + '\'' + ", closingDate=" + this.closingDate + '}';
+        return "Market{" + "id=" + this.id + ", question='" + this.question + '\'' + ", closingDate=" + this.closingDate + '\'' + this.user + '}';
     }
 
 }
