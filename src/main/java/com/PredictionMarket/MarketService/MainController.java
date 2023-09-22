@@ -96,9 +96,9 @@ public class MainController {
 //                    return marketRepository.save(newMarket);
 //                });
 //    }
-//
-//    @DeleteMapping("/comments/{id}")
-//    void deleteComment(@PathVariable Long id) {
-//        marketRepository.deleteById(id);
-//    }
+
+    @DeleteMapping("/comments/{id}")
+    void deleteComment(@PathVariable Long id) {
+        commentRepository.deleteById(id);
+    }
 }
