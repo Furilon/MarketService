@@ -28,7 +28,7 @@ public class Comment {
 
     Comment(String commentContent, Market market) {
         this.commentContent = commentContent;
-        this.market = market;`
+        this.market = market;
     }
 
     public String getCommentContent() {
