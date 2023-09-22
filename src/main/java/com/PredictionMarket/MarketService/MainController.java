@@ -27,13 +27,13 @@ public class MainController {
 
     @GetMapping("/markets/{id}")
     Market one(@PathVariable Long id) {
-        return marketRepository.findById(Math.toIntExact(id))
+        return marketRepository.findById(id)
                 .orElseThrow(() -> new MarketNotFoundException(id));
     }
 
     @PutMapping("/markets/{id}")
     Market replaceMarket(@RequestBody Market newMarket, @PathVariable Long id) {
-        return marketRepository.findById(Math.toIntExact(id))
+        return marketRepository.findById(id)
                 .map(market -> {
                     market.setDescription(newMarket.getDescription());
                     market.setQuestion(market.getQuestion());
@@ -48,7 +48,7 @@ public class MainController {
 
     @DeleteMapping("/markets/{id}")
     void deleteMarket(@PathVariable Long id) {
-        marketRepository.deleteById(Math.toIntExact(id));
+        marketRepository.deleteById(id);
     }
 
 }
