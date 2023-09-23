@@ -41,6 +41,16 @@ public class MainController {
                 .orElseThrow(() -> new MarketNotFoundException(id));
     }
 
+    @GetMapping("/markets/withComments/{id}")
+    MarketWithComments oneMarketWithComments(@PathVariable Long id) {
+        Market market = marketRepository.findById(id)
+                .orElseThrow(() -> new MarketNotFoundException(id));
+
+        List<Comment> comments = this.allCommentsForMarket(id);
+
+        return new MarketWithComments(market, comments);
+    }
+
     @PutMapping("/markets/{id}")
     Market replaceMarket(@RequestBody Market newMarket, @PathVariable Long id) {
         return marketRepository.findById(id)
@@ -103,5 +113,15 @@ public class MainController {
     private static class CommentUpdateRequestData {
         public String newComment;
         public Long commentId;
+    }
+
+    private static class MarketWithComments {
+        public Market market;
+        public List<Comment> comments;
+
+        MarketWithComments(Market market, List<Comment> comments) {
+            this.market = market;
+            this.comments = comments;
+        }
     }
 }
