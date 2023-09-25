@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin("https://localhost:8081")
 public class MainController {
 
     @Autowired
