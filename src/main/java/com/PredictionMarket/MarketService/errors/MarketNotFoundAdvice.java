@@ -1,4 +1,4 @@
-package com.PredictionMarket.MarketService;
+package com.PredictionMarket.MarketService.errors;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;

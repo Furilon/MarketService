@@ -1,4 +1,4 @@
-package com.PredictionMarket.MarketService.auth;
+package com.PredictionMarket.MarketService.auth.objects;
 
 
 import lombok.AllArgsConstructor;

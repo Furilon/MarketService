@@ -1,4 +1,4 @@
-package com.PredictionMarket.MarketService;
+package com.PredictionMarket.MarketService.models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

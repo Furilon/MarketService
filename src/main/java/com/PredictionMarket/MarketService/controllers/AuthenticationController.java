@@ -1,5 +1,9 @@
-package com.PredictionMarket.MarketService.auth;
+package com.PredictionMarket.MarketService.controllers;
 
+import com.PredictionMarket.MarketService.auth.objects.AuthenticationRequest;
+import com.PredictionMarket.MarketService.auth.objects.AuthenticationResponse;
+import com.PredictionMarket.MarketService.auth.services.AuthenticationService;
+import com.PredictionMarket.MarketService.auth.objects.RegisterRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

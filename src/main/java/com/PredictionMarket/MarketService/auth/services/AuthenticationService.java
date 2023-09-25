@@ -1,9 +1,11 @@
-package com.PredictionMarket.MarketService.auth;
+package com.PredictionMarket.MarketService.auth.services;
 
-import com.PredictionMarket.MarketService.Role;
-import com.PredictionMarket.MarketService.UserRepository;
-import com.PredictionMarket.MarketService.config.JwtService;
-import com.PredictionMarket.MarketService.User;
+import com.PredictionMarket.MarketService.auth.objects.AuthenticationRequest;
+import com.PredictionMarket.MarketService.auth.objects.AuthenticationResponse;
+import com.PredictionMarket.MarketService.auth.objects.RegisterRequest;
+import com.PredictionMarket.MarketService.models.Role;
+import com.PredictionMarket.MarketService.models.UserRepository;
+import com.PredictionMarket.MarketService.models.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

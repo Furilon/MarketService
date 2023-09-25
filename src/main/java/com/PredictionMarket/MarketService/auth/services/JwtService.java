@@ -1,4 +1,4 @@
-package com.PredictionMarket.MarketService.config;
+package com.PredictionMarket.MarketService.auth.services;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

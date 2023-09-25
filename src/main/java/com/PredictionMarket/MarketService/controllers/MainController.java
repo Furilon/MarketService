@@ -1,5 +1,9 @@
-package com.PredictionMarket.MarketService;
+package com.PredictionMarket.MarketService.controllers;
 
+import com.PredictionMarket.MarketService.errors.MarketNotFoundException;
+import com.PredictionMarket.MarketService.helperclasses.CommentUpdateRequestData;
+import com.PredictionMarket.MarketService.helperclasses.MarketWithComments;
+import com.PredictionMarket.MarketService.models.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -108,20 +112,5 @@ public class MainController {
     @DeleteMapping("/comments/{id}")
     void deleteComment(@PathVariable Long id) {
         commentRepository.deleteById(id);
-    }
-
-    private static class CommentUpdateRequestData {
-        public String newComment;
-        public Long commentId;
-    }
-
-    private static class MarketWithComments {
-        public Market market;
-        public List<Comment> comments;
-
-        MarketWithComments(Market market, List<Comment> comments) {
-            this.market = market;
-            this.comments = comments;
-        }
     }
 }

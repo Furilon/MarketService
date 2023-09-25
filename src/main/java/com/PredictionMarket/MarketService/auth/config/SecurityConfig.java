@@ -1,4 +1,4 @@
-package com.PredictionMarket.MarketService.config;
+package com.PredictionMarket.MarketService.auth.config;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;

@@ -1,4 +1,4 @@
-package com.PredictionMarket.MarketService;
+package com.PredictionMarket.MarketService.models;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 public interface MarketRepository extends JpaRepository<Market, Long> {

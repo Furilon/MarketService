@@ -1,4 +1,4 @@
-package com.PredictionMarket.MarketService.auth;
+package com.PredictionMarket.MarketService.auth.objects;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,9 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class AuthenticationRequest {
+public class RegisterRequest {
+    private String firstName;
+    private String lastName;
     private String username;
-    String password;
+    private String password;
 }

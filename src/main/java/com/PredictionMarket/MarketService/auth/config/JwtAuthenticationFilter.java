@@ -1,5 +1,6 @@
-package com.PredictionMarket.MarketService.config;
+package com.PredictionMarket.MarketService.auth.config;
 
+import com.PredictionMarket.MarketService.auth.services.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

@@ -1,4 +1,4 @@
-package com.PredictionMarket.MarketService;
+package com.PredictionMarket.MarketService.models;
 
 import jakarta.persistence.*;
 
@@ -14,8 +14,8 @@ public class Market {
     private String question;
     private Date closingDate;
     private String description;
-    @ManyToOne
-    private User user;
+//    @ManyToOne
+//    private User user;
 
     Market() {}
 
@@ -23,7 +23,7 @@ public class Market {
         this.question = question;
         this.closingDate = closingDate;
         this.description = description;
-        this.user = user;
+//        this.user = user;
     }
 
 
@@ -68,9 +68,9 @@ public class Market {
         this.description = description;
     }
 
-    public User getUser() {
-        return user;
-    }
+//    public User getUser() {
+//        return user;
+//    }
 
     @Override
     public boolean equals(Object o) {
@@ -82,18 +82,18 @@ public class Market {
         return Objects.equals(this.id, market.id) &&
                 Objects.equals(this.closingDate, market.closingDate) &&
                 Objects.equals(this.description, market.description) &&
-                Objects.equals(this.question, market.question) &&
-                Objects.equals(this.user, market.user);
+                Objects.equals(this.question, market.question); /*&&*/
+//                Objects.equals(this.user, market.user);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.id, this.closingDate, this.description, this.question, this.user);
+        return Objects.hash(this.id, this.closingDate, this.description, this.question); //this.user);
     }
 
     @Override
     public String toString() {
-        return "Market{" + "id=" + this.id + ", question='" + this.question + '\'' + ", closingDate=" + this.closingDate + '\'' + this.user + '}';
+        return "Market{" + "id=" + this.id + ", question='" + this.question + '\'' + ", closingDate=" + this.closingDate + '\'' + /*this.user*/ + '}';
     }
 
 }
